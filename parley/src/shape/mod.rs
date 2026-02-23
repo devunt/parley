@@ -258,7 +258,11 @@ fn fill_cluster_in_place(
     // Finalize cluster metadata
     let end = *code_unit_offset_in_string as u32;
     char_cluster.is_emoji = is_emoji_or_pictograph;
-    char_cluster.map_len = 0;
+    char_cluster.map_len = char_cluster
+        .chars
+        .iter()
+        .filter(|c| c.contributes_to_shaping)
+        .count() as u8;
     char_cluster.start = start;
     char_cluster.end = end;
     char_cluster.force_normalize = force_normalize;
