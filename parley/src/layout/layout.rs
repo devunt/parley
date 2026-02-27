@@ -117,7 +117,7 @@ impl<B: Brush> Layout<B> {
     ///
     /// This must be called before [`Layout::break_all_lines`] or [`Layout::break_lines`],
     /// and before [`Layout::align`].
-    pub fn indent(&mut self, amount: f32, options: IndentOptions) {
+    pub fn set_text_indent(&mut self, amount: f32, options: IndentOptions) {
         self.data.indent_amount = amount;
         self.data.indent_options = options;
     }

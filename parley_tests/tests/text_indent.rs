@@ -17,7 +17,7 @@ fn build_indented_layout(
 ) -> parley::Layout<ColorBrush> {
     let builder = env.ranged_builder(text);
     let mut layout = builder.build(text);
-    layout.indent(indent_amount, indent_options);
+    layout.set_text_indent(indent_amount, indent_options);
     layout.break_all_lines(Some(wrap_width));
     layout.align(None, alignment, AlignmentOptions::default());
     layout
